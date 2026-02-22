@@ -69,6 +69,6 @@ public class Autor {
         return "Autor: " + nome +
                 "\n Ano de nascimento " + anoNascimento +
                 "\n Ano de Falecimento: " + getAnoMorte() +
-                "\nLivros: " + livros;
+                "\n Livros: " + livros.stream().map(l -> l.getTitulo()).toList();
     }
 }

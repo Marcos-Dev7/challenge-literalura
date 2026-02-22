@@ -9,6 +9,7 @@ import com.alura.literalura.repository.LivroRepository;
 import com.alura.literalura.service.ConsumoApi;
 import com.alura.literalura.service.ConverteDados;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
@@ -99,7 +100,8 @@ public class Principal {
     }
 
     private void listarAutoresRegistrados() {
-        System.out.println("em construção");
+        List<Autor> resultado = autorRepository.findAll();
+        resultado.forEach(System.out::println);
     }
 
     private void listarAutoresVivos() {
