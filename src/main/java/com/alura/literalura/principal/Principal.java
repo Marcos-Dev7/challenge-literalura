@@ -105,10 +105,34 @@ public class Principal {
     }
 
     private void listarAutoresVivos() {
-        System.out.println("em construção");
+        System.out.println("Digite o ano que deseja pesquisar");
+        Integer anoDesejado = Integer.valueOf(leitura.nextLine());
+
+        List<Autor> autoresVivos = autorRepository.buscarPeloAnoDesejado(anoDesejado);
+        if (autoresVivos.isEmpty()) {
+            System.out.println("Nenhum autor encontrado");
+        } else {
+            autoresVivos.forEach(System.out::println);
+        }
+
     }
 
     private void listarLivrosPorIdioma() {
-        System.out.println("em construção");
+        System.out.println("""
+                Exemplo:
+                es - espanhol
+                en - inglês
+                fr - francês
+                pt - português
+                """);
+
+        System.out.println("Digite a sigla desejada: ");
+        var siglaDesejada = leitura.nextLine();
+        try {
+            var resultado = livroRepository.findByIdiomas(siglaDesejada);
+            resultado.forEach(System.out::println);
+        } catch (Exception e) {
+            System.out.println("Nenhum livro com a sigla encontrada!");
+        }
     }
 }
