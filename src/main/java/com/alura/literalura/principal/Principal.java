@@ -65,7 +65,7 @@ public class Principal {
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("Houve um erro: Digite o nome de um livro !!!");
+                System.out.println("Houve um erro: " + e.getMessage());
             }
         }
     }
@@ -94,7 +94,8 @@ public class Principal {
     }
 
     private void listarLivrosRegistrados() {
-        System.out.println("em construção");
+        var resultado = livroRepository.findAll();
+        resultado.forEach(System.out::println);
     }
 
     private void listarAutoresRegistrados() {

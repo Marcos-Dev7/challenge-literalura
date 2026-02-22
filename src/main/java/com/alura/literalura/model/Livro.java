@@ -12,7 +12,7 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> idiomas;
     @ManyToOne(cascade = CascadeType.ALL)
     private Autor autor;
@@ -73,5 +73,16 @@ public class Livro {
 
     public void setNumeroDownloads(Integer numeroDownloads) {
         this.numeroDownloads = numeroDownloads;
+    }
+
+    @Override
+    public String toString() {
+        return """
+                ------------------------ LIVRO %s -----------------------------
+                 Título:  %s
+                "Autor: "  %s
+                "Idioma: " %s
+                "Downloads: " %d
+                "--------------------------------------------------------------""".formatted(id,titulo, autor.getNome(), idiomas, numeroDownloads);
     }
 }

@@ -1,10 +1,9 @@
 package com.alura.literalura.model;
 
 import com.alura.literalura.dto.DadosAutor;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Autor {
@@ -16,6 +15,8 @@ public class Autor {
     private Integer anoNascimento;
     private Integer anoMorte;
 
+    @OneToMany (mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Livro> livros;
 
     public Autor() {
     }
@@ -61,5 +62,13 @@ public class Autor {
 
     public void setAnoMorte(Integer anoMorte) {
         this.anoMorte = anoMorte;
+    }
+
+    @Override
+    public String toString() {
+        return "Autor: " + nome +
+                "\n Ano de nascimento " + anoNascimento +
+                "\n Ano de Falecimento: " + getAnoMorte() +
+                "\nLivros: " + livros;
     }
 }
