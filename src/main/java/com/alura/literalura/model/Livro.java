@@ -14,7 +14,7 @@ public class Livro {
     private String titulo;
     @ElementCollection
     private List<String> idiomas;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Autor autor;
     private Integer numeroDownloads;
 
@@ -33,5 +33,45 @@ public class Livro {
         this.idiomas = dadosLivro.idiomas();
         this.autor = new Autor(dadosLivro.autor().get(0));
         this.numeroDownloads = dadosLivro.numeroDownloads();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public List<String> getIdiomas() {
+        return idiomas;
+    }
+
+    public void setIdiomas(List<String> idiomas) {
+        this.idiomas = idiomas;
+    }
+
+    public Autor getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+
+    public Integer getNumeroDownloads() {
+        return numeroDownloads;
+    }
+
+    public void setNumeroDownloads(Integer numeroDownloads) {
+        this.numeroDownloads = numeroDownloads;
     }
 }
