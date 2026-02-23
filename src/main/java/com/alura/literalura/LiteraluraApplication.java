@@ -1,11 +1,8 @@
 package com.alura.literalura;
 
-import com.alura.literalura.dto.DadosResposta;
 import com.alura.literalura.principal.Principal;
 import com.alura.literalura.repository.AutorRepository;
 import com.alura.literalura.repository.LivroRepository;
-import com.alura.literalura.service.ConsumoApi;
-import com.alura.literalura.service.ConverteDados;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

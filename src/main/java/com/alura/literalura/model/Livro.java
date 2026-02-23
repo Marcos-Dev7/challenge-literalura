@@ -1,6 +1,5 @@
 package com.alura.literalura.model;
 
-import com.alura.literalura.dto.DadosAutor;
 import com.alura.literalura.dto.DadosLivro;
 import jakarta.persistence.*;
 
